@@ -43,33 +43,28 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Prof. dr. Irawan Satriotomo, Ph.D.",
-      role: "Founder & Director",
+      role: "FOUNDER - DEWAN PENGAWAS",
       bio: "Internationally recognized neuroscientist with expertise in stroke recovery research. Previously affiliated with the University of Wisconsin and now leading Neuroscience Institute to advance neuroscience in Indonesia.",
     },
     {
-      name: "Dr. Anisa Wijaya",
-      role: "Research Director",
-      bio: "Specializes in neurodegenerative disorders with a focus on Alzheimer's disease. Leads the research initiatives and international collaborations at Neuroscience Institute.",
+      name: "Dr. dr. Shahdevi Sp.S (K)",
+      role: "Ketua",
+      bio: "Leading the Neuroscience Institute's initiatives and overseeing all research and educational programs to advance neuroscience in Indonesia.",
     },
     {
-      name: "Dr. Budi Santoso",
-      role: "Education Coordinator",
-      bio: "Neurophysiologist with a passion for education. Oversees the training programs and educational initiatives to develop the next generation of Indonesian neuroscientists.",
+      name: "Dr. Husnul Khotimah",
+      role: "Sekretaris",
+      bio: "Manages the institute's administrative operations and coordinates communication between different departments and external partners.",
     },
     {
-      name: "Maya Putri, M.Sc.",
-      role: "Laboratory Manager",
-      bio: "Expert in neuroimaging techniques and laboratory management. Ensures the smooth operation of research facilities and equipment at Neuroscience Institute.",
+      name: "Dr. dr. Veronica",
+      role: "Bendahara",
+      bio: "Oversees the financial management and budget planning of the Neuroscience Institute to ensure sustainable operations and research funding.",
     },
     {
-      name: "Reza Firmansyah",
-      role: "IT & Digital Strategy",
-      bio: "Specializes in research data management and digital communications. Manages the institute's online presence and technological infrastructure.",
-    },
-    {
-      name: "Siti Rahmah, M.B.A.",
-      role: "Administration & Finance",
-      bio: "Experienced in non-profit management and fundraising. Handles the administrative and financial aspects of Neuroscience Institute to support its research mission.",
+      name: "Obed Irwanto S.T.",
+      role: "Kepala IT",
+      bio: "Leads the institute's technological infrastructure, digital communications, and research data management systems.",
     },
   ];
 

@@ -236,7 +236,7 @@ const Resources = () => {
   >("all");
   const [currentPage, setCurrentPage] = useState(1);
   const videosPerPage = 8; // Number of videos to display per page
-  
+
   // Research pagination
   const [researchSearchTerm, setResearchSearchTerm] = useState("");
   const [researchCurrentPage, setResearchCurrentPage] = useState(1);
@@ -362,7 +362,7 @@ const Resources = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, platformFilter]);
-  
+
   // Reset research page when search changes
   useEffect(() => {
     setResearchCurrentPage(1);
@@ -594,19 +594,25 @@ const Resources = () => {
   ];
 
   // Filter and paginate research data
-  const filteredResearch = resources.filter((resource) => 
+  const filteredResearch = resources.filter((resource) =>
     resource.title.toLowerCase().includes(researchSearchTerm.toLowerCase())
   );
-  
+
   // Calculate research pagination
-  const totalResearchPages = Math.ceil(filteredResearch.length / researchPerPage);
+  const totalResearchPages = Math.ceil(
+    filteredResearch.length / researchPerPage
+  );
   const indexOfLastResearch = researchCurrentPage * researchPerPage;
   const indexOfFirstResearch = indexOfLastResearch - researchPerPage;
-  const currentResearch = filteredResearch.slice(indexOfFirstResearch, indexOfLastResearch);
-  
+  const currentResearch = filteredResearch.slice(
+    indexOfFirstResearch,
+    indexOfLastResearch
+  );
+
   // Handle research page change
-  const paginateResearch = (pageNumber: number) => setResearchCurrentPage(pageNumber);
-  
+  const paginateResearch = (pageNumber: number) =>
+    setResearchCurrentPage(pageNumber);
+
   return (
     <section
       id="publications"
@@ -1021,13 +1027,15 @@ const Resources = () => {
               </div>
             )}
           </div>
-          
+
           {/* Research Pagination controls */}
           {filteredResearch.length > 0 && (
             <div className="flex justify-center mt-10 gap-2 flex-wrap">
               {/* Prev button */}
               <button
-                onClick={() => paginateResearch(Math.max(1, researchCurrentPage - 1))}
+                onClick={() =>
+                  paginateResearch(Math.max(1, researchCurrentPage - 1))
+                }
                 disabled={researchCurrentPage === 1}
                 className={`w-10 h-10 cursor-pointer flex items-center justify-center rounded-md text-sm border transition-colors ${
                   researchCurrentPage === 1
@@ -1077,7 +1085,8 @@ const Resources = () => {
                   );
                 } else if (
                   (pageNumber === researchCurrentPage - 2 && pageNumber > 1) ||
-                  (pageNumber === researchCurrentPage + 2 && pageNumber < totalResearchPages)
+                  (pageNumber === researchCurrentPage + 2 &&
+                    pageNumber < totalResearchPages)
                 ) {
                   return (
                     <span
@@ -1092,7 +1101,11 @@ const Resources = () => {
               })}
 
               <button
-                onClick={() => paginateResearch(Math.min(totalResearchPages, researchCurrentPage + 1))}
+                onClick={() =>
+                  paginateResearch(
+                    Math.min(totalResearchPages, researchCurrentPage + 1)
+                  )
+                }
                 disabled={researchCurrentPage === totalResearchPages}
                 className={`w-10 h-10 flex items-center justify-center rounded-md text-sm border transition-colors cursor-pointer ${
                   researchCurrentPage === totalResearchPages
@@ -1118,7 +1131,7 @@ const Resources = () => {
               </button>
             </div>
           )}
-          
+
           <motion.div
             className="text-center mt-8"
             initial={{ opacity: 0, y: 10 }}
@@ -1127,7 +1140,7 @@ const Resources = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="https://www.researchgate.net/"
+                href="https://www.researchgate.net/profile/Irawan-Satriotomo"
                 target="_blank"
                 className="text-primary hover:text-primary/80 font-medium inline-flex items-center"
               >

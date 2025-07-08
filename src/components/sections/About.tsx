@@ -111,7 +111,7 @@ const About = () => {
               >
                 <Tabs.Trigger
                   value="vision"
-                  className="px-6 py-3 text-gray-600 hover:text-primary data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary font-medium transition-colors"
+                  className="px-6 py-3 cursor-pointer text-gray-600 hover:text-primary data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary font-medium transition-colors"
                 >
                   <motion.span
                     animate={{
@@ -130,7 +130,7 @@ const About = () => {
               >
                 <Tabs.Trigger
                   value="mission"
-                  className="px-6 py-3 text-gray-600 hover:text-primary data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary font-medium transition-colors"
+                  className="px-6 py-3 cursor-pointer text-gray-600 hover:text-primary data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary font-medium transition-colors"
                 >
                   <motion.span
                     animate={{
@@ -143,7 +143,7 @@ const About = () => {
                 </Tabs.Trigger>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -160,7 +160,7 @@ const About = () => {
                     Goals
                   </motion.span>
                 </Tabs.Trigger>
-              </motion.div>
+              </motion.div> */}
             </Tabs.List>
 
             <AnimatePresence mode="wait">

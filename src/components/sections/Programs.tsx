@@ -19,24 +19,62 @@ const ProgramCard = ({ title, description, icon, delay }: ProgramCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: delay }}
-      whileHover={{ y: -10, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)" }}
-      className="bg-white p-6 rounded-lg shadow-md transition-all"
+      whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)" }}
+      className="bg-white rounded-xl shadow-md border border-gray-100 transition-all overflow-hidden relative flex flex-col h-full"
     >
-      <motion.div
-        className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
-        whileHover={{ scale: 1.1, backgroundColor: "rgba(59, 130, 246, 0.2)" }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        <motion.span
-          className="text-primary text-xl"
-          animate={isInView ? { scale: [0.8, 1.2, 1] } : { scale: 1 }}
-          transition={{ duration: 0.5, delay: delay + 0.3 }}
+      {/* Top accent bar with icon */}
+      <div className="bg-gradient-to-r from-primary/80 to-primary h-2 w-full"></div>
+
+      <div className="p-6 flex-grow">
+        {/* Header with icon and title */}
+        <div className="flex items-center mb-4">
+          <motion.div
+            className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0"
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <motion.span
+              className="text-primary text-2xl"
+              animate={isInView ? { scale: [0.8, 1.2, 1] } : { scale: 1 }}
+              transition={{ duration: 0.5, delay: delay + 0.3 }}
+            >
+              {icon}
+            </motion.span>
+          </motion.div>
+
+          <h3 className="text-xl font-bold text-gray-800 leading-tight">
+            {title}
+          </h3>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-600 leading-relaxed text-sm">{description}</p>
+      </div>
+
+      {/* Footer with read more link */}
+      <div className="px-6 py-3 cursor-pointer">
+        <motion.div
+          className="flex items-center text-primary text-sm font-medium"
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
-          {icon}
-        </motion.span>
-      </motion.div>
-      <h3 className="text-xl font-bold text-darkGray mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+          <span>Selengkapnya</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 ml-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
@@ -46,60 +84,78 @@ const Programs = () => {
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
   const researchProjects = [
     {
-      title: "Stroke Recovery Research",
+      title: "Pengembangan Model Hewan Percobaan",
       description:
-        "Investigating novel therapeutic approaches for post-stroke recovery, focusing on neuroplasticity and rehabilitation techniques.",
-      icon: "🧠",
+        "Pengembangan model hewan percobaan untuk penyakit stroke, epilepsi, multiple sclerosis, neurotoksisitas alkohol/obat-obat terlarang, dll serta terapi terbarunya.",
+      icon: "🐀",
     },
     {
-      title: "Epilepsy Studies",
+      title: "Lokakarya Teknik Penelitian Neurosains",
       description:
-        "Researching the genetic and environmental factors contributing to epilepsy in Indonesian populations, with a focus on developing targeted treatments.",
-      icon: "⚡",
-    },
-    {
-      title: "Neurodegenerative Disorders",
-      description:
-        "Studying the mechanisms of neurodegenerative diseases like Alzheimer's and Parkinson's, with particular attention to risk factors prevalent in Southeast Asia.",
+        "Workshop dan pelatihan teknik penelitian neurosains untuk peneliti dan mahasiswa.",
       icon: "🔬",
     },
     {
-      title: "Neurotrauma Research",
+      title: "Development of Stroke Model",
       description:
-        "Developing improved diagnostic and treatment protocols for traumatic brain and spinal cord injuries, addressing the specific challenges in Indonesian healthcare settings.",
+        "Development of stroke model in rats including ischemic stroke, hemorrhagic stroke, and alcohol/withdrawal syndrome with focus on mechanisms.",
+      icon: "🧠",
+    },
+    {
+      title: "Neural Tracer Techniques",
+      description:
+        "WGA (Wheat Germ Agglutinin) for anterograde signaling and Cholera toxin B (CTB) for retrograde signaling studies.",
+      icon: "🔬",
+    },
+    {
+      title: "Immunohistochemistry Techniques",
+      description:
+        "Specialized techniques including indirect (DAB) methods and fluorescence techniques for neurological research.",
+      icon: "🧪",
+    },
+    {
+      title: "Pengembangan Animal Center",
+      description:
+        "Pengembangan fasilitas dan standar untuk animal center yang mendukung penelitian neurosains.",
       icon: "🏥",
     },
     {
-      title: "Neurodevelopmental Research",
+      title: "ASEAN Neuroscience Training",
       description:
-        "Investigating the neural basis of developmental disorders and creating culturally appropriate assessment tools for Indonesian children.",
-      icon: "👶",
+        "Pengenalan dan pelatihan neurosains di ASEAN bekerjasama dengan IBRO (International Brain Research Organization).",
+      icon: "🌏",
     },
     {
-      title: "Neuro-oncology",
+      title: "Asian Journal of Neuroscience",
       description:
-        "Researching brain and spinal cord tumors, with a focus on developing novel therapeutic approaches and improving patient outcomes in Indonesia.",
-      icon: "🔎",
+        "Bekerjasama dengan ahli neurosains di Asia dan penerbit internasional membuat peer-review Asian Journal of Neuroscience.",
+      icon: "📚",
     },
   ];
 
   const collaborations = [
     {
-      title: "University of Wisconsin",
+      title: "Prof. Gordon S. Mitchell",
       description:
-        "Collaborative research on stroke recovery mechanisms and therapeutic interventions, sharing expertise and resources.",
+        "University of Wisconsin, USA - Collaborative research on stroke recovery mechanisms and therapeutic interventions.",
       icon: "🇺🇸",
     },
     {
-      title: "Keio University, Japan",
+      title: "Prof. Yoshiki Takeuchi, MD, Ph.D.",
       description:
-        "Joint research initiatives focusing on neurodegenerative diseases, with exchange programs for researchers and students.",
+        "Kagawa University, Japan - Joint research initiatives focusing on neurodegenerative diseases.",
       icon: "🇯🇵",
     },
     {
-      title: "Seoul National University",
+      title: "Prof. Yoshino Fukui, MD, Ph.D.",
       description:
-        "Collaboration on neuroimaging techniques and their application in diagnosing and monitoring neurological disorders.",
+        "Tokushima University, Japan - Collaboration on neurological research and exchange programs.",
+      icon: "🇯🇵",
+    },
+    {
+      title: "Prof. Park Seung-Won, MD, Ph.D.",
+      description:
+        "Ehwa University, South Korea - Collaboration on neuroimaging techniques and neurological disorders.",
       icon: "🇰🇷",
     },
   ];
