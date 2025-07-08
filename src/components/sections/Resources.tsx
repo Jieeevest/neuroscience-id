@@ -236,6 +236,11 @@ const Resources = () => {
   >("all");
   const [currentPage, setCurrentPage] = useState(1);
   const videosPerPage = 8; // Number of videos to display per page
+  
+  // Research pagination
+  const [researchSearchTerm, setResearchSearchTerm] = useState("");
+  const [researchCurrentPage, setResearchCurrentPage] = useState(1);
+  const researchPerPage = 6; // Number of research items to display per page
 
   const videos = [
     {
@@ -357,6 +362,11 @@ const Resources = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, platformFilter]);
+  
+  // Reset research page when search changes
+  useEffect(() => {
+    setResearchCurrentPage(1);
+  }, [researchSearchTerm]);
 
   // const resources = [
   //   {
@@ -582,6 +592,21 @@ const Resources = () => {
       type: "research" as const,
     },
   ];
+
+  // Filter and paginate research data
+  const filteredResearch = resources.filter((resource) => 
+    resource.title.toLowerCase().includes(researchSearchTerm.toLowerCase())
+  );
+  
+  // Calculate research pagination
+  const totalResearchPages = Math.ceil(filteredResearch.length / researchPerPage);
+  const indexOfLastResearch = researchCurrentPage * researchPerPage;
+  const indexOfFirstResearch = indexOfLastResearch - researchPerPage;
+  const currentResearch = filteredResearch.slice(indexOfFirstResearch, indexOfLastResearch);
+  
+  // Handle research page change
+  const paginateResearch = (pageNumber: number) => setResearchCurrentPage(pageNumber);
+  
   return (
     <section
       id="publications"
@@ -912,16 +937,71 @@ const Resources = () => {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <motion.h3
-            className="text-2xl font-bold text-darkGray mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            Research & E-Books
-          </motion.h3>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <motion.h3
+              className="text-2xl font-bold text-darkGray mb-4 md:mb-0"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              Research & E-Books
+            </motion.h3>
+            <motion.div
+              className="relative w-full md:w-64"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <input
+                type="text"
+                placeholder="Search research..."
+                value={researchSearchTerm}
+                onChange={(e) => setResearchSearchTerm(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              />
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                {researchSearchTerm ? (
+                  <button
+                    onClick={() => setResearchSearchTerm("")}
+                    className="focus:outline-none"
+                    aria-label="Clear search"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                )}
+              </div>
+            </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {resources.map((resource, index) => (
+            {currentResearch.map((resource, index) => (
               <ResourceCard
                 key={index}
                 title={resource.title}
@@ -931,7 +1011,114 @@ const Resources = () => {
                 delay={0.1 * index}
               />
             ))}
+            {filteredResearch.length === 0 && (
+              <div className="col-span-full text-center py-10">
+                <p className="text-gray-500">
+                  {researchSearchTerm
+                    ? `No research found matching "${researchSearchTerm}". Try a different search term.`
+                    : `No research available.`}
+                </p>
+              </div>
+            )}
           </div>
+          
+          {/* Research Pagination controls */}
+          {filteredResearch.length > 0 && (
+            <div className="flex justify-center mt-10 gap-2 flex-wrap">
+              {/* Prev button */}
+              <button
+                onClick={() => paginateResearch(Math.max(1, researchCurrentPage - 1))}
+                disabled={researchCurrentPage === 1}
+                className={`w-10 h-10 cursor-pointer flex items-center justify-center rounded-md text-sm border transition-colors ${
+                  researchCurrentPage === 1
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200"
+                    : "bg-white text-gray-700 hover:bg-gray-200 hover:text-black border-gray-300"
+                }`}
+                aria-label="Previous page"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Page buttons */}
+              {[...Array(totalResearchPages)].map((_, index) => {
+                const pageNumber = index + 1;
+
+                if (
+                  pageNumber === 1 ||
+                  pageNumber === totalResearchPages ||
+                  (pageNumber >= researchCurrentPage - 1 &&
+                    pageNumber <= researchCurrentPage + 1)
+                ) {
+                  return (
+                    <button
+                      key={pageNumber}
+                      onClick={() => paginateResearch(pageNumber)}
+                      className={`px-3 py-1 rounded-md text-sm border transition-colors cursor-pointer ${
+                        researchCurrentPage === pageNumber
+                          ? "bg-gray-800 text-white font-semibold border-gray-800"
+                          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-200 hover:text-black hover:border-gray-400"
+                      }`}
+                    >
+                      {pageNumber}
+                    </button>
+                  );
+                } else if (
+                  (pageNumber === researchCurrentPage - 2 && pageNumber > 1) ||
+                  (pageNumber === researchCurrentPage + 2 && pageNumber < totalResearchPages)
+                ) {
+                  return (
+                    <span
+                      key={pageNumber}
+                      className="px-3 py-1 text-gray-400 text-sm"
+                    >
+                      ...
+                    </span>
+                  );
+                }
+                return null;
+              })}
+
+              <button
+                onClick={() => paginateResearch(Math.min(totalResearchPages, researchCurrentPage + 1))}
+                disabled={researchCurrentPage === totalResearchPages}
+                className={`w-10 h-10 flex items-center justify-center rounded-md text-sm border transition-colors cursor-pointer ${
+                  researchCurrentPage === totalResearchPages
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200"
+                    : "bg-white text-gray-700 hover:bg-gray-200 hover:text-black border-gray-300"
+                }`}
+                aria-label="Next page"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
+          
           <motion.div
             className="text-center mt-8"
             initial={{ opacity: 0, y: 10 }}

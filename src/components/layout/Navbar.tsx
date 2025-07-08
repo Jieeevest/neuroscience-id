@@ -151,7 +151,7 @@ export function Navbar() {
                   href="#publications"
                   className="hover:font-semibold cursor-pointer"
                 >
-                  Publications
+                  Media
                 </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
@@ -164,7 +164,7 @@ export function Navbar() {
                   href="#contact"
                   className="hover:font-semibold cursor-pointer"
                 >
-                  Contact
+                  Contact Us
                 </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>

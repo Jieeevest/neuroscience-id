@@ -3,6 +3,7 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("vision");
@@ -58,36 +59,32 @@ const About = () => {
             className="flex justify-center"
           >
             <motion.div
-              className="relative w-full max-w-md aspect-square rounded-lg overflow-hidden bg-white shadow-md"
+              className="relative w-full max-w-md aspect-square rounded-lg overflow-hidden bg-white shadow-md group"
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {/* Placeholder for founder image with animated gradient */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300"
-                animate={{
-                  background: [
-                    "linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%)",
-                    "linear-gradient(135deg, #e4e8ec 0%, #f5f7fa 100%)",
-                    "linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%)",
-                  ],
-                }}
-                transition={{ duration: 8, repeat: Infinity }}
-              >
-                <motion.div
-                  className="text-center p-4"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  <div className="text-xl font-bold text-darkGray">
+              {/* Founder Image */}
+              <Image
+                src="/images/Dr-irawan-satriotomo.jpg"
+                alt="Prof. dr. Irawan Satriotomo, Ph.D."
+                width={500}
+                height={500}
+                className="rounded-lg object-cover"
+                style={{ objectPosition: "center top" }}
+                priority
+              />
+
+              {/* Hover overlay with name */}
+              <motion.div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <div className="text-center text-white ">
+                  <div className="text-xl font-bold">
                     Prof. dr. Irawan Satriotomo, Ph.D.
                   </div>
-                  <div className="text-primary">Founder</div>
-                </motion.div>
+                  <div className="text-sm text-primary font-bold">Founder</div>
+                </div>
               </motion.div>
             </motion.div>
           </motion.div>
