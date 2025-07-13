@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import { ResourceCardImage } from "@/components/ui/ResourceCardImage";
 import { useRef, useState, useEffect } from "react";
 
 interface VideoCardProps {
@@ -48,20 +48,14 @@ const VideoCard = ({
       <Link href={videoUrl} target="_blank" className="block">
         <div className="relative aspect-video">
           <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <Image
+            <ResourceCardImage
               src={thumbnailUrl}
               alt={title}
-              fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               className={`object-cover transition-transform duration-300 ${
                 isHovered ? "scale-110" : "scale-100"
               }`}
               priority={index === 0}
-              onError={(e) => {
-                // Fallback to a generic video thumbnail if the YouTube thumbnail fails to load
-                const target = e.target as HTMLImageElement;
-                target.src = "/images/video-placeholder.svg";
-              }}
             />
           </div>
           <motion.div
