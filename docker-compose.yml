@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  neuroscience-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4400:4400"
+    environment:
+      - NODE_ENV=production
+      - PORT=4400
+    restart: unless-stopped
+    container_name: neuroscience-container
+    networks:
+      - neuroscience-network
+
+networks:
+  neuroscience-network:
+    driver: bridge
