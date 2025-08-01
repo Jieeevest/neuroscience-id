@@ -11,73 +11,349 @@ const IMAGE_URL = "/images/10613.png";
 // Sample events data (in a real app, this would come from a database or API)
 const events = [
   {
-    id: "neuroscience-symposium-2023",
-    title: "International Neuroscience Symposium 2023",
-    date: "2023-11-15",
-    location: "Jakarta Convention Center, Indonesia",
+    id: "faons-icn-2022",
+    title:
+      "8th Symposium Federation of Asian-Oceanian Neuroscience Societies (FAONS) & 4th Indonesia Conference of Neuroscience (ICN)",
+    date: "2022-08-19",
+    location: "Virtual (Jakarta Time)",
     description:
-      "A gathering of neuroscience researchers from around the world to discuss the latest advancements in the field of neuroscience, featuring keynote speakers from leading institutions.",
-    imageUrl: "/images/10613.png",
+      "Virtual event bringing together experts to discuss implementing basic neuroscience to clinical neuroscience. Includes multiple symposia on topics such as ageing brain, depression, anxiety, schizophrenia, dementia, and more.",
+    imageUrl: "/images/faons_icn_2022.png",
     category: "past",
-    fullDescription: `<p>The International Neuroscience Symposium 2023 was a landmark event that brought together leading researchers, clinicians, and students from across the globe to discuss cutting-edge developments in neuroscience.</p>
+    fullDescription: `<p>The 8th Symposium Federation of Asian-Oceanian Neuroscience Societies (FAONS) & 4th Indonesia Conference of Neuroscience (ICN) was a landmark virtual event that brought together leading neuroscience researchers, clinicians, and students from across Asia-Oceania region.</p>
 
-<p>The symposium featured keynote presentations from renowned neuroscientists, including:</p>
+<p>This comprehensive symposium focused on implementing basic neuroscience to clinical neuroscience, featuring multiple specialized sessions:</p>
 <ul>
-  <li>Dr. Sarah Johnson (Harvard University) - "Neural Circuits and Behavior: New Insights from Optogenetics"</li>
-  <li>Prof. Hiroshi Tanaka (Tokyo University) - "Advances in Brain-Computer Interfaces for Rehabilitation"</li>
-  <li>Dr. Maria Rodriguez (University of Barcelona) - "Neuroplasticity and Recovery After Stroke"</li>
+  <li>Ageing Brain and Neurodegenerative Diseases</li>
+  <li>Depression and Anxiety Disorders</li>
+  <li>Schizophrenia and Psychotic Disorders</li>
+  <li>Dementia and Cognitive Impairment</li>
+  <li>Neuroplasticity and Brain Recovery</li>
+  <li>Translational Neuroscience Approaches</li>
 </ul>
 
-<p>The event also included panel discussions on emerging topics in neuroscience, poster presentations by early-career researchers, and networking opportunities for attendees to forge new collaborations.</p>
+<p>The event featured keynote presentations from renowned international speakers, panel discussions on emerging topics, and poster presentations by early-career researchers. The virtual format allowed for broader participation from across the region.</p>
 
-<p>The symposium was organized by the Indonesian Neuroscience Society in collaboration with the International Brain Research Organization (IBRO) and was attended by over 500 participants from 25 countries.</p>`,
+<p>The symposium was organized by the Federation of Asian-Oceanian Neuroscience Societies in collaboration with the Indonesian Neuroscience Society, attracting over 800 participants from 15 countries in the Asia-Oceania region.</p>`,
     schedule: [
-      { time: "08:00 - 09:00", activity: "Registration and Welcome Coffee" },
+      { time: "08:00 - 09:00", activity: "Virtual Registration and Welcome" },
       { time: "09:00 - 09:30", activity: "Opening Ceremony" },
       {
         time: "09:30 - 10:30",
-        activity: "Keynote Speech: Neural Circuits and Behavior",
+        activity: "Keynote: Implementing Basic Neuroscience to Clinical Practice",
       },
-      { time: "10:30 - 11:00", activity: "Coffee Break" },
+      { time: "10:30 - 11:00", activity: "Break" },
       {
         time: "11:00 - 12:30",
-        activity: "Panel Discussion: Future of Neuroscience in Southeast Asia",
+        activity: "Symposium: Ageing Brain and Neurodegeneration",
       },
       { time: "12:30 - 13:30", activity: "Lunch Break" },
-      { time: "13:30 - 15:00", activity: "Parallel Sessions" },
-      { time: "15:00 - 15:30", activity: "Coffee Break" },
-      { time: "15:30 - 17:00", activity: "Poster Presentations" },
+      { time: "13:30 - 15:00", activity: "Parallel Sessions: Depression & Anxiety" },
+      { time: "15:00 - 15:30", activity: "Break" },
+      { time: "15:30 - 17:00", activity: "Panel: Future of Neuroscience in Asia-Oceania" },
       {
         time: "17:00 - 18:00",
-        activity: "Closing Remarks and Networking Reception",
+        activity: "Closing Remarks and Virtual Networking",
       },
     ],
     speakers: [
       {
-        name: "Dr. Sarah Johnson",
-        affiliation: "Harvard University",
-        topic: "Neural Circuits and Behavior",
+        name: "Prof. Irawan Satriotomo",
+        affiliation: "University of Florida & INI",
+        topic: "Translational Neuroscience",
       },
       {
-        name: "Prof. Hiroshi Tanaka",
-        affiliation: "Tokyo University",
-        topic: "Brain-Computer Interfaces",
+        name: "Dr. Kenji Hashimoto",
+        affiliation: "Chiba University, Japan",
+        topic: "Depression and Neuroplasticity",
       },
       {
-        name: "Dr. Maria Rodriguez",
-        affiliation: "University of Barcelona",
-        topic: "Neuroplasticity and Recovery",
+        name: "Prof. Susan Greenfield",
+        affiliation: "University of Oxford",
+        topic: "Ageing Brain and Dementia",
       },
       {
-        name: "Dr. Ahmad Wijaya",
+        name: "Dr. Ahmad Aulia Jusuf",
         affiliation: "University of Indonesia",
-        topic: "Neurodegenerative Diseases",
+        topic: "Clinical Neuroscience Applications",
       },
     ],
     gallery: [
-      "/images/event1-gallery1.jpg",
-      "/images/event1-gallery2.jpg",
-      "/images/event1-gallery3.jpg",
+      "/images/faons-gallery1.jpg",
+      "/images/faons-gallery2.jpg",
+      "/images/faons-gallery3.jpg",
+    ],
+  },
+  {
+    id: "workshop-lab-animal-2017",
+    title:
+      "Workshop Strategi Pengembangan Laboratory Animal Center Berstandar Internasional",
+    date: "2017-12-11",
+    location:
+      "Universitas YARSI, Cempaka Putih, Jakarta & Animal Lab, Salemba",
+    description:
+      "A 2-day workshop on developing an international-standard laboratory animal center, facilitated by experts from University of Florida, Dexa Medica, and IPB.",
+    imageUrl: "/images/workshop_lab_animal_2017.png",
+    category: "past",
+    fullDescription: `<p>This intensive 2-day workshop focused on developing an international-standard laboratory animal center, bringing together experts from leading institutions to share best practices and methodologies.</p>
+
+<p>The workshop covered essential topics including:</p>
+<ul>
+  <li>International standards for laboratory animal facilities</li>
+  <li>Animal welfare and ethical considerations</li>
+  <li>Facility design and environmental controls</li>
+  <li>Quality assurance and accreditation processes</li>
+  <li>Staff training and competency development</li>
+  <li>Regulatory compliance and documentation</li>
+</ul>
+
+<p>Expert facilitators from University of Florida, Dexa Medica, and IPB provided hands-on training and shared their extensive experience in establishing and managing world-class laboratory animal facilities.</p>
+
+<p>The workshop was designed for researchers, facility managers, veterinarians, and administrators involved in laboratory animal research and facility management.</p>`,
+    schedule: [
+      { time: "Day 1 - 09:00", activity: "Registration and Welcome" },
+      { time: "Day 1 - 09:30", activity: "International Standards Overview" },
+      { time: "Day 1 - 11:00", activity: "Facility Design Principles" },
+      { time: "Day 1 - 13:00", activity: "Lunch Break" },
+      { time: "Day 1 - 14:00", activity: "Animal Welfare Guidelines" },
+      { time: "Day 1 - 16:00", activity: "Site Visit to Animal Lab, Salemba" },
+      { time: "Day 2 - 09:00", activity: "Quality Assurance Systems" },
+      { time: "Day 2 - 11:00", activity: "Staff Training Programs" },
+      { time: "Day 2 - 13:00", activity: "Lunch Break" },
+      { time: "Day 2 - 14:00", activity: "Regulatory Compliance" },
+      { time: "Day 2 - 16:00", activity: "Q&A and Closing" },
+    ],
+    speakers: [
+      {
+        name: "Prof. Irawan Satriotomo",
+        affiliation: "University of Florida",
+        topic: "International Laboratory Standards",
+      },
+      {
+        name: "Dr. Veterinary Expert",
+        affiliation: "Dexa Medica",
+        topic: "Animal Welfare and Care",
+      },
+      {
+        name: "Prof. Animal Science",
+        affiliation: "IPB University",
+        topic: "Facility Management",
+      },
+    ],
+    gallery: [
+      "/images/workshop-gallery1.jpg",
+      "/images/workshop-gallery2.jpg",
+      "/images/workshop-gallery3.jpg",
+    ],
+  },
+  {
+    id: "workshop-publikasi-2017",
+    title:
+      "Workshop Kiat Sukses Publikasi di Jurnal Internasional Bereputasi",
+    date: "2017-12-13",
+    location: "Universitas YARSI, Cempaka Putih, Jakarta",
+    description:
+      "A workshop on successful strategies for publishing in reputable international journals, facilitated by Irawan Satriotomo, M.D., Ph.D.",
+    imageUrl: "/images/workshop_publikasi_2017.png",
+    category: "past",
+    fullDescription: `<p>This comprehensive workshop provided researchers and academics with essential strategies and practical tips for successfully publishing their research in reputable international journals.</p>
+
+<p>Key topics covered in the workshop:</p>
+<ul>
+  <li>Understanding journal selection criteria and impact factors</li>
+  <li>Manuscript structure and scientific writing best practices</li>
+  <li>Peer review process and responding to reviewer comments</li>
+  <li>Common pitfalls and how to avoid them</li>
+  <li>Ethical considerations in scientific publishing</li>
+  <li>Building a strong publication portfolio</li>
+</ul>
+
+<p>The workshop was facilitated by Dr. Irawan Satriotomo, M.D., Ph.D., who shared his extensive experience in international publishing and provided personalized guidance to participants.</p>
+
+<p>Participants gained valuable insights into the publication process and practical tools to enhance their chances of successful publication in high-impact international journals.</p>`,
+    schedule: [
+      { time: "09:00 - 09:30", activity: "Registration and Welcome" },
+      { time: "09:30 - 10:30", activity: "Journal Selection Strategies" },
+      { time: "10:30 - 11:00", activity: "Coffee Break" },
+      { time: "11:00 - 12:30", activity: "Scientific Writing Excellence" },
+      { time: "12:30 - 13:30", activity: "Lunch Break" },
+      { time: "13:30 - 15:00", activity: "Peer Review Process" },
+      { time: "15:00 - 15:30", activity: "Coffee Break" },
+      { time: "15:30 - 17:00", activity: "Q&A and Individual Consultations" },
+    ],
+    speakers: [
+      {
+        name: "Dr. Irawan Satriotomo",
+        affiliation: "University of Florida & INI",
+        topic: "International Publishing Strategies",
+      },
+    ],
+    gallery: [
+      "/images/publikasi-gallery1.jpg",
+      "/images/publikasi-gallery2.jpg",
+    ],
+  },
+  {
+    id: "epilepsy-101-2018",
+    title: "Epilepsy 101: Diagnosis dan Tatalaksana Epilepsi",
+    date: "2018-09-03",
+    location:
+      "Auditorium FK UIN Syarif Hidayatullah, Tangerang Selatan, Banten",
+    description:
+      "A seminar covering modern perspectives on epilepsy, its diagnosis and treatment, with multiple sessions and expert speakers from various fields.",
+    imageUrl: "/images/epilepsy_101_2018.png",
+    category: "past",
+    fullDescription: `<p>Epilepsy 101 was a comprehensive educational seminar designed to provide healthcare professionals, students, and the general public with up-to-date knowledge about epilepsy diagnosis and management.</p>
+
+<p>The seminar covered essential aspects of epilepsy care:</p>
+<ul>
+  <li>Modern understanding of epilepsy pathophysiology</li>
+  <li>Diagnostic approaches and EEG interpretation</li>
+  <li>Current treatment options and medication management</li>
+  <li>Surgical interventions for refractory epilepsy</li>
+  <li>Lifestyle modifications and patient counseling</li>
+  <li>Psychosocial aspects of living with epilepsy</li>
+</ul>
+
+<p>The event featured expert speakers from neurology, neurosurgery, and related fields, providing a multidisciplinary perspective on epilepsy care.</p>
+
+<p>This seminar was particularly valuable for medical students, residents, and practicing physicians seeking to enhance their understanding of epilepsy management.</p>`,
+    schedule: [
+      { time: "08:00 - 09:00", activity: "Registration" },
+      { time: "09:00 - 09:30", activity: "Opening and Introduction" },
+      { time: "09:30 - 10:30", activity: "Epilepsy Pathophysiology" },
+      { time: "10:30 - 11:00", activity: "Coffee Break" },
+      { time: "11:00 - 12:00", activity: "Diagnostic Approaches" },
+      { time: "12:00 - 13:00", activity: "Lunch Break" },
+      { time: "13:00 - 14:00", activity: "Treatment Strategies" },
+      { time: "14:00 - 15:00", activity: "Surgical Options" },
+      { time: "15:00 - 15:30", activity: "Coffee Break" },
+      { time: "15:30 - 16:30", activity: "Patient Care and Counseling" },
+      { time: "16:30 - 17:00", activity: "Q&A and Closing" },
+    ],
+    speakers: [
+      {
+        name: "Dr. Neurologist",
+        affiliation: "RSCM Jakarta",
+        topic: "Epilepsy Diagnosis",
+      },
+      {
+        name: "Dr. Neurosurgeon",
+        affiliation: "RS Fatmawati",
+        topic: "Surgical Treatment",
+      },
+    ],
+    gallery: [
+      "/images/epilepsy-gallery1.jpg",
+      "/images/epilepsy-gallery2.jpg",
+    ],
+  },
+  {
+    id: "workshop-neuroscience-2019",
+    title: "Workshop Neuroscience: From Basic to Clinical",
+    date: "2019-11-16",
+    location: "Universitas YARSI, Cempaka Putih, Jakarta",
+    description:
+      "A comprehensive workshop bridging basic neuroscience research with clinical applications, featuring expert speakers and hands-on sessions.",
+    imageUrl: "/images/workshop_neuroscience_2019.png",
+    category: "past",
+    fullDescription: `<p>This workshop provided a comprehensive overview of neuroscience, bridging the gap between basic research and clinical applications. Participants gained insights into cutting-edge neuroscience research and its practical implications in healthcare.</p>
+
+<p>The workshop covered key areas including:</p>
+<ul>
+  <li>Fundamental principles of neuroscience</li>
+  <li>Neuroanatomy and neurophysiology</li>
+  <li>Neurodevelopment and neuroplasticity</li>
+  <li>Neurodegenerative diseases</li>
+  <li>Clinical neuroscience applications</li>
+  <li>Research methodologies in neuroscience</li>
+</ul>
+
+<p>Expert speakers from leading institutions shared their research findings and clinical experiences, providing participants with a well-rounded understanding of the field.</p>
+
+<p>The workshop was designed for medical students, researchers, clinicians, and anyone interested in understanding the complexities of the nervous system.</p>`,
+    schedule: [
+      { time: "08:30 - 09:00", activity: "Registration" },
+      { time: "09:00 - 09:30", activity: "Opening Ceremony" },
+      { time: "09:30 - 10:30", activity: "Basic Neuroscience Principles" },
+      { time: "10:30 - 11:00", activity: "Coffee Break" },
+      { time: "11:00 - 12:00", activity: "Neuroanatomy Overview" },
+      { time: "12:00 - 13:00", activity: "Lunch Break" },
+      { time: "13:00 - 14:00", activity: "Clinical Applications" },
+      { time: "14:00 - 15:00", activity: "Research Methodologies" },
+      { time: "15:00 - 15:30", activity: "Coffee Break" },
+      { time: "15:30 - 16:30", activity: "Case Studies and Discussion" },
+      { time: "16:30 - 17:00", activity: "Closing and Networking" },
+    ],
+    speakers: [
+      {
+        name: "Prof. Neuroscience Expert",
+        affiliation: "University of Indonesia",
+        topic: "Basic Neuroscience",
+      },
+      {
+        name: "Dr. Clinical Neurologist",
+        affiliation: "RSCM Jakarta",
+        topic: "Clinical Applications",
+      },
+    ],
+    gallery: [
+      "/images/neuroscience-workshop-gallery1.jpg",
+      "/images/neuroscience-workshop-gallery2.jpg",
+    ],
+  },
+  {
+    id: "seminar-stroke-2020",
+    title: "Seminar Stroke: Prevention and Management",
+    date: "2020-02-15",
+    location: "Virtual Event (Online)",
+    description:
+      "An online seminar focusing on stroke prevention strategies and modern management approaches, adapted for the digital format during the pandemic.",
+    imageUrl: "/images/seminar_stroke_2020.png",
+    category: "past",
+    fullDescription: `<p>This virtual seminar addressed the critical topic of stroke prevention and management, providing healthcare professionals and the public with essential knowledge about one of the leading causes of disability and death worldwide.</p>
+
+<p>Key topics covered in the seminar:</p>
+<ul>
+  <li>Stroke epidemiology and risk factors</li>
+  <li>Primary and secondary prevention strategies</li>
+  <li>Acute stroke management and treatment protocols</li>
+  <li>Rehabilitation and recovery approaches</li>
+  <li>Community awareness and education</li>
+  <li>Telemedicine applications in stroke care</li>
+</ul>
+
+<p>The seminar was conducted online to ensure safety during the COVID-19 pandemic, making it accessible to a wider audience while maintaining high-quality educational content.</p>
+
+<p>Participants included healthcare professionals, medical students, and community members interested in stroke prevention and care.</p>`,
+    schedule: [
+      { time: "09:00 - 09:15", activity: "Virtual Check-in and Welcome" },
+      { time: "09:15 - 10:00", activity: "Stroke Epidemiology" },
+      { time: "10:00 - 10:15", activity: "Break" },
+      { time: "10:15 - 11:00", activity: "Prevention Strategies" },
+      { time: "11:00 - 11:15", activity: "Break" },
+      { time: "11:15 - 12:00", activity: "Acute Management" },
+      { time: "12:00 - 13:00", activity: "Lunch Break" },
+      { time: "13:00 - 13:45", activity: "Rehabilitation Approaches" },
+      { time: "13:45 - 14:00", activity: "Break" },
+      { time: "14:00 - 14:45", activity: "Community Education" },
+      { time: "14:45 - 15:30", activity: "Q&A and Closing" },
+    ],
+    speakers: [
+      {
+        name: "Dr. Stroke Specialist",
+        affiliation: "RS Cipto Mangunkusumo",
+        topic: "Stroke Management",
+      },
+      {
+        name: "Prof. Rehabilitation Medicine",
+        affiliation: "University of Indonesia",
+        topic: "Stroke Rehabilitation",
+      },
+    ],
+    gallery: [
+      "/images/stroke-seminar-gallery1.jpg",
+      "/images/stroke-seminar-gallery2.jpg",
     ],
   },
   {
