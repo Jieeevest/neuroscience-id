@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface TeamMemberProps {
   name: string;
@@ -19,16 +20,13 @@ const TeamMember = ({ name, role, bio, delay }: TeamMemberProps) => {
       className="bg-white rounded-lg shadow-md overflow-hidden"
     >
       <div className="aspect-square relative bg-gray-200">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
-            <span className="text-primary text-2xl font-bold">
-              {name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </span>
-          </div>
-        </div>
+        <Image
+          src="/images/ava-default.jpg"
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-darkGray">{name}</h3>
